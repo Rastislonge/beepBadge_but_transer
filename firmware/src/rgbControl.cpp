@@ -223,14 +223,59 @@ void theaterChaseRainbow(int wait) {
   }
 }
 
+void clearStrip() {
+  for (int i = 0; i < neopix.numPixels(); i++) {
+    neopix.setPixelColor(i, neopix.Color(0, 0, 0)); // Clear all pixels
+  }
+  neopix.show();
+}
+
+void trans_flag(int wait) {
+  clearStrip();
+
+  uint32_t blue = neopix.Color(0, 100, 200);   // Darker blue
+  uint32_t pink = neopix.Color(200, 50, 120); // Darker pink
+  uint32_t white = neopix.Color(127, 127, 127); // Greyish white
+
+  // First blue stripe
+  for (uint8_t i = 0; i < 3; i++) { 
+    neopix.setPixelColor(i, blue);
+  }
+
+  // First pink stripe
+  for (uint8_t i = 3; i < 6; i++) { 
+    neopix.setPixelColor(i, pink);
+  }
+
+  // White stripe
+  for (uint8_t i = 6; i < 10; i++) { 
+    neopix.setPixelColor(i, white);
+  }
+
+  // Second pink stripe
+  for (uint8_t i = 10; i < 13; i++) { 
+    neopix.setPixelColor(i, pink);
+  }
+
+  // Second blue stripe
+  for (uint8_t i = 13; i < 16; i++) { 
+    neopix.setPixelColor(i, blue);
+  }
+
+  neopix.show(); // Update all pixels at once
+  delay(wait);
+}
+
 void rgbLed_testLoopLocking()
 {
   while(1)
   {
+    //Trans flag :3
+    trans_flag(2000);
     // Fill along the length of the strip in various colors...
-    colorWipe(neopix.Color(255,   0,   0), 50); // Red
-    colorWipe(neopix.Color(  0, 255,   0), 50); // Green
-    colorWipe(neopix.Color(  0,   0, 255), 50); // Blue
+    colorWipe(neopix.Color(0, 100, 200), 50); // light blue
+    colorWipe(neopix.Color(200, 50, 120), 50); // pink
+    colorWipe(neopix.Color(127, 127, 127), 50); // white
 
     // Do a theater marquee effect in various colors...
     theaterChase(neopix.Color(127, 127, 127), 50); // White, half brightness

@@ -25,8 +25,8 @@
 const uint8_t SEQ_LGT = 16;
 uint8_t sequencer[SEQ_LGT] =  {A,G,A,F4,     C,F4,_A,0,   A,G,A,F4,    C,F4,_A,0};  //16 timeslots available for sound sequencing
 uint8_t sequencePreset[][SEQ_LGT] =  {  /*each number correspond to the tone requested for playback (see _TONES)*/                                         
-                                          {A,G,A,F4,    C,F4,_A,0,    A,G,A,F4,      C,F4,_A,0    },  //popcorn part1
-                                          {D,E,F4,E,    F4,D,E,D,     E,C,D,C,       _A,C,D,0     },  //popcorn part2
+                                          {A,A,_A,D,    Ds,A,A,_A,    D,Ds,B,B,     _A,D,Ds,0    },  //megalovania part1
+                                          {Ds,E,Fs,A,   Fs,E,C,C,    _A,D,Ds,Ds,    E,Fs,A,Fs    },  //megalovania part2
                                           {A,B,C_,B,    C_,A,B,A,     B,G,A,G,      A,_A,A,0      },  //popcorn part3
                                           {1,1,1,1,     1,1,1,1,      1,1,1,1,      1,1,1,1,      }  //twinkle twinkly little star
                                       };
